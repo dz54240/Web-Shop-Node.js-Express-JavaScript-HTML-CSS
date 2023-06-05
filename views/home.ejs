@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include ('partials/getProductsHead')%>
+  <body>
+    <div class="container">
+      <a class="logo" href="/home/getCategories"><div class="logo"></div></a>
+      <header><h1 id="js-title"><%= title %></h1></header>
+      <div class="search-cart">
+        <a id="cart-logo-hover" class="cart-logo" href="/cart/getAll"></a>
+        <% if(cartCount !== undefined && cartCount !== 0){ %>
+        <div id="cartCount"><%= cartCount %></div>
+        <% } %>
+        <a id="search-logo-hover" class="search-logo" href=""></a>
+      </div>
+      <%- include ('partials/productsNav') %>
+      <div class="main">
+        <div class="mainPic">pic</div>
+        <div class="mainTxt"><h1 id="txt">THE ART OF PERFORMANCE</h1></div>
+      </div>
+
+      <div class="cont">
+        <button>Kontakt</button>
+        <button>Newsletter</button>
+        <button>Pretplati se</button>
+      </div>
+
+      <section>
+        <% for(let i=0;i<=categoryProducts.length-1;i++) { %>
+        <div class="products">
+          <div class="innerPic">
+            <!-- slika automobila -->
+            <img src="<%= categoryProducts[i].image %>" alt="slika" />
+          </div>
+          <div class="innerSection">
+            <!-- ime auta -->
+            <span id="carName"><%= categoryProducts[i].name %></span>
+            <button class="js-buton-cart"></button>
+            <!-- kolicina u kosarici -->
+            <% if(entries !== undefined){ %> <% for(let entry of entries){ %> <%
+            if(entry[0] === categoryProducts[i].name){ %>
+            <span>|Quantity:<%= entry[1] %></span>
+            <% } %> <% } %><% } %>
+          </div>
+        </div>
+        <% } %>
+      </section>
+    </div>
+    <script src="/scripts/script.js"></script>
+  </body>
+</html>

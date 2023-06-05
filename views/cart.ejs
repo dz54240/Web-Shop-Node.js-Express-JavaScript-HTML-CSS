@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Text&family=Inter&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/styles/cart.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="main">
+        <div class="mainPic"></div>
+        <div class="mainTxt"><h1 id="txt">CART</h1></div>
+      </div>
+      <div class="cart">
+        <h1>KOŠARICA</h1>
+        <div class="grid-container">
+          <div class="name">
+            <h1>PROIZVOD</h1>
+            <% if(cart !== undefined){ %> <% for(let entry of
+            Object.entries(cart)){ %>
+            <p class="productName"><%= entry[0] %></p>
+            <% } %> <% } %>
+          </div>
+          <div class="amount">
+            <h1>KOLIČINA</h1>
+            <% if(cart !== undefined){ %> <% for(let entry of
+            Object.entries(cart)){ %>
+            <p>
+              <button class="amount-minus-button">-</button
+              ><span><%= entry[1] %></span
+              ><button class="amount-plus-button">+</button>
+            </p>
+            <% } %> <% } %>
+          </div>
+        </div>
+        <h1 id="bottom">
+          <% if(backTo !== undefined && backTo !== '/cart/getAll'){ %>
+          <a href="<%= backTo %>" id="return">POVRATAK</a>
+          <% }else{ %>
+          <a href="/home/getCategories" id="return">POVRATAK</a>
+          <% } %>
+        </h1>
+      </div>
+    </div>
+    <script src="/scripts/cart.js"></script>
+  </body>
+</html>

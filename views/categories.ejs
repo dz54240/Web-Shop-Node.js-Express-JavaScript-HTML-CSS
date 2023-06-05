@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include ('partials/getProductsHead') %>
+  <body>
+    <div class="container">
+      <a class="logo" href="/home/getCategories"><div class="logo"></div></a>
+      <header><h1 id="js-title">CATEGORIES</h1></header>
+      <div class="search-cart">
+        <a id="cart-logo-hover" class="cart-logo" href="/cart/getAll"></a>
+        <% if(cartCount !== undefined && cartCount !== 0){ %>
+        <div id="cartCount"><%= cartCount %></div>
+        <% } %>
+        <a id="search-logo-hover" class="search-logo" href=""></a>
+      </div>
+      <%- include ('partials/productsNav') %>
+      <div class="main">
+        <div class="mainPic">pic</div>
+        <div class="mainTxt"><h1 id="txt">THE ART OF PERFORMANCE</h1></div>
+      </div>
+
+      <div class="cont">
+        <button>Kontakt</button>
+        <button>Newsletter</button>
+        <button>Pretplati se</button>
+      </div>
+      <section>
+        <h1>
+          To see products of each category click the following buttons on your
+          left
+        </h1>
+      </section>
+    </div>
+    <script src="/scripts/script.js"></script>
+  </body>
+</html>
